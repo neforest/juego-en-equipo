@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private SpriteRenderer sprite;
     private Rigidbody2D rigid; 
     private bool isGrounded;
-    private bool jumpInWall;
+    private bool _isJumpOnWall;
     private float horizontalInput;
 
     [SerializeField]private float _timer = 0.3f;
@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
     private bool _faceToLeft = false;
     private bool _jumpOnTheRightWall = false;
     private bool _jumpOnTheLeftWall = false;
+
+    private bool _enableJumpOnWall = false;
 
     void Start()
     {
@@ -98,29 +100,34 @@ public class Player : MonoBehaviour
             isGrounded = false;
         }
 
-        //si es salto en pared entonces hay un impulso hacia arriba 
-        //y hacia el lado opuesto a la direccion del jugador
-        if (Input.GetKeyDown("space") && jumpInWall) {
-            
-            //si salto hacia la izquierda, el impulso es hacia la derecha
-            if (horizontalInput < 0) {
-                rigid.velocity = new Vector2(_impulseHorizontalInWall, _impulseVerticalInWall);
-                _jumpOnTheRightWall = false;
-                _jumpOnTheLeftWall = true;
-                Debug.Log("_jumpOnTheRightWall izquierda: " + _jumpOnTheRightWall);
-            }
-
-            //si salto hacia la derecha, el impulso es hacia la izquierda
-            if (horizontalInput > 0) {
-                rigid.velocity = new Vector2(-1 * _impulseHorizontalInWall, _impulseVerticalInWall);
-                _jumpOnTheRightWall = true;
-                _jumpOnTheLeftWall = false;
-                Debug.Log("_jumpOnTheRightWall derecha: " + _jumpOnTheRightWall);
-            }
-            jumpInWall = false;
-            isGrounded = false;
+        
+        if (Input.GetKeyDown("space") && _isJumpOnWall && _enableJumpOnWall) {
+            JumpOnWall();
         }
 
+    }
+
+    void JumpOnWall() {
+        //si es salto en pared entonces hay un impulso hacia arriba 
+        //y hacia el lado opuesto a la direccion del jugador
+
+        //si salto hacia la izquierda, el impulso es hacia la derecha
+        if (horizontalInput < 0) {
+            rigid.velocity = new Vector2(_impulseHorizontalInWall, _impulseVerticalInWall);
+            _jumpOnTheRightWall = false;
+            _jumpOnTheLeftWall = true;
+            Debug.Log("_jumpOnTheRightWall izquierda: " + _jumpOnTheRightWall);
+        }
+
+        //si salto hacia la derecha, el impulso es hacia la izquierda
+        if (horizontalInput > 0) {
+            rigid.velocity = new Vector2(-1 * _impulseHorizontalInWall, _impulseVerticalInWall);
+            _jumpOnTheRightWall = true;
+            _jumpOnTheLeftWall = false;
+            Debug.Log("_jumpOnTheRightWall derecha: " + _jumpOnTheRightWall);
+        }
+        _isJumpOnWall = false;
+        isGrounded = false;
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -131,19 +138,32 @@ public class Player : MonoBehaviour
 
          if (other.gameObject.name == "Collider" && isGrounded == false)
          {
-             isGrounded = true;
-             jumpInWall = false;
+            isGrounded = true;
+            _isJumpOnWall = false;
+
+            _faceToRight = false;
+            _faceToLeft = false;
+            _jumpOnTheRightWall = false;
+            _jumpOnTheLeftWall = false;
          }
 
          if (other.gameObject.name == "Wall")
          { 
             if ((_faceToRight != _jumpOnTheRightWall || _faceToLeft != _jumpOnTheLeftWall) && isGrounded == false) {
-                jumpInWall = true;
+                _isJumpOnWall = true;
                 _waitMove = true;
             } else {
-                jumpInWall = false;
+                _isJumpOnWall = false;
                 _waitMove = false;
             }
+         }
+
+         if (other.gameObject.name == "PowerUpJumpOnWall") {
+
+            _enableJumpOnWall = true;
+
+            Destroy(other.gameObject);
+
          }
      }
 }
