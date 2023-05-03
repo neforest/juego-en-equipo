@@ -18,6 +18,14 @@ public class Player : MonoBehaviour
     private float _initialTime = 0;
     private bool _waitMove = false;
 
+    [SerializeField]private float _impulseHorizontalInWall = 6.0f;
+    [SerializeField]private float _impulseVerticalInWall = 12.0f;
+
+    private bool _faceToRight = false;
+    private bool _faceToLeft = false;
+    private bool _jumpOnTheRightWall = false;
+    private bool _jumpOnTheLeftWall = false;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -68,37 +76,48 @@ public class Player : MonoBehaviour
         Vector3 currentScale = transform.localScale;
         if (horizontalInput > 0 ) {
             currentScale.x = Mathf.Abs(currentScale.x);
+            _faceToRight = true;
+            _faceToLeft = false;
+            Debug.Log("_faceToRight derecha: " + _faceToRight);
         } 
         if (horizontalInput < 0) {
             currentScale.x = Mathf.Abs(currentScale.x) * -1;
+            _faceToRight = false;
+            _faceToLeft = true;
+            Debug.Log("_faceToRight izquierda: " + _faceToRight);
         }
         transform.localScale = currentScale;
     }
 
     void jump() {
 
-        if (Input.GetKeyDown("space") && (isGrounded || jumpInWall))
+        if (Input.GetKeyDown("space") && isGrounded)
         {
-            rigid.velocity = Vector2.up * _jumpForce;
+            rigid.velocity = new Vector2(0, _jumpForce);
 
-            Debug.Log("jumpInWall: " + jumpInWall);
+            isGrounded = false;
+        }
 
-            //si es salto en pared entonces hay un impulso hacia arriba 
-            //y hacia el lado opuesto a la direccion del jugador
-            if (jumpInWall) {
-                
-                //si salto hacia la izquierda, el impulso es hacia la derecha
-                if (horizontalInput < 0) {
-                    rigid.velocity = new Vector2(0.5f, 1f) * _jumpForce;
-                }
-
-                //si salto hacia la derecha, el impulso es hacia la izquierda
-                if (horizontalInput > 0) {
-                    rigid.velocity = new Vector2(-0.5f, 1f) * _jumpForce;
-                }
-                jumpInWall = false;
+        //si es salto en pared entonces hay un impulso hacia arriba 
+        //y hacia el lado opuesto a la direccion del jugador
+        if (Input.GetKeyDown("space") && jumpInWall) {
+            
+            //si salto hacia la izquierda, el impulso es hacia la derecha
+            if (horizontalInput < 0) {
+                rigid.velocity = new Vector2(_impulseHorizontalInWall, _impulseVerticalInWall);
+                _jumpOnTheRightWall = false;
+                _jumpOnTheLeftWall = true;
+                Debug.Log("_jumpOnTheRightWall izquierda: " + _jumpOnTheRightWall);
             }
 
+            //si salto hacia la derecha, el impulso es hacia la izquierda
+            if (horizontalInput > 0) {
+                rigid.velocity = new Vector2(-1 * _impulseHorizontalInWall, _impulseVerticalInWall);
+                _jumpOnTheRightWall = true;
+                _jumpOnTheLeftWall = false;
+                Debug.Log("_jumpOnTheRightWall derecha: " + _jumpOnTheRightWall);
+            }
+            jumpInWall = false;
             isGrounded = false;
         }
 
@@ -117,9 +136,14 @@ public class Player : MonoBehaviour
          }
 
          if (other.gameObject.name == "Wall")
-         {
-             jumpInWall = true;
-             _waitMove = true;
+         { 
+            if ((_faceToRight != _jumpOnTheRightWall || _faceToLeft != _jumpOnTheLeftWall) && isGrounded == false) {
+                jumpInWall = true;
+                _waitMove = true;
+            } else {
+                jumpInWall = false;
+                _waitMove = false;
+            }
          }
      }
 }
