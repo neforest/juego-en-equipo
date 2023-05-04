@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        sprite = GetComponent<SpriteRenderer>();
         rigid = GetComponent<Rigidbody2D>();
         isGrounded = true;
     }
