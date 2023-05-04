@@ -28,11 +28,15 @@ public class Player : MonoBehaviour
 
     private bool _enableJumpOnWall = false;
 
+    private PlayerAbilityControl _abilityControl;
+
     void Start()
     {
         animator = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
         isGrounded = true;
+
+        _abilityControl = GetComponent<PlayerAbilityControl>();
     }
 
     // Update is called once per frame
@@ -157,11 +161,12 @@ public class Player : MonoBehaviour
             }
          }
 
-         if (other.gameObject.name == "PowerUpJumpOnWall") {
+         if (_abilityControl.canWallJump) { 
+         //if (other.gameObject.name == "PowerUpJumpOnWall") {
 
             _enableJumpOnWall = true;
 
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
 
          }
      }

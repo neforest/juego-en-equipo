@@ -12,7 +12,7 @@ public class PowerupUnlock : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other) {
         
         if (other.tag == "Player") {
-            PlayerAbilityControll player = other.GetComponent<PlayerAbilityControll>();
+            PlayerAbilityControl player = other.GetComponent<PlayerAbilityControl>();
 
             if (doubleJump) {
                 player.canDoubleJump = true;
@@ -25,7 +25,7 @@ public class PowerupUnlock : MonoBehaviour
             }
         }
         Instantiate(powerupFX,transform.position, transform.rotation);
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 
 }
