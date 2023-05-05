@@ -137,5 +137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doubleJump: 0
-  wallJump: 0
+  wallJump: 1
   attack: 0
+  powerupFX: {fileID: 3258084761067767469, guid: 49004d019a6ac0c4c83e61051de72c99, type: 3}
