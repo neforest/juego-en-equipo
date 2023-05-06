@@ -13,9 +13,10 @@ public class PowerupUnlock : MonoBehaviour
         
         if (other.tag == "Player") {
             PlayerAbilityControl player = other.GetComponent<PlayerAbilityControl>();
-
+            
             if (doubleJump) {
                 player.canDoubleJump = true;
+                player.GetComponent<Player>().maxJumps = 2;
             }
             if (wallJump) {
                 player.canWallJump = true;

@@ -4040,14 +4040,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8521055520223093347, guid: 232026cfedd5170449d02c8b4e4bc19e, type: 3}
-      propertyPath: wallJump
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8521055520223093347, guid: 232026cfedd5170449d02c8b4e4bc19e, type: 3}
-      propertyPath: powerupFX
-      value: 
-      objectReference: {fileID: 3258084761067767469, guid: 49004d019a6ac0c4c83e61051de72c99, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 232026cfedd5170449d02c8b4e4bc19e, type: 3}
 --- !u!1001 &1733714520664818626

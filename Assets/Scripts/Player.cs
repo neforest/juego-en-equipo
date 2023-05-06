@@ -28,6 +28,9 @@ public class Player : MonoBehaviour
 
     private bool _enableJumpOnWall = false;
 
+    private int _jumps = 0;
+    public int maxJumps = 1;
+
     private PlayerAbilityControl _abilityControl;
 
     void Start()
@@ -96,10 +99,10 @@ public class Player : MonoBehaviour
 
     void jump() {
 
-        if (Input.GetKeyDown("space") && isGrounded)
+        if (Input.GetKeyDown("space") && (isGrounded || _jumps < maxJumps))
         {
             rigid.velocity = new Vector2(0, _jumpForce);
-
+            _jumps++;
             isGrounded = false;
         }
 
@@ -107,6 +110,10 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown("space") && _isJumpOnWall && _enableJumpOnWall) {
             JumpOnWall();
         }
+
+    }
+
+    void DoubleJump() {
 
     }
 
@@ -148,6 +155,8 @@ public class Player : MonoBehaviour
             _faceToLeft = false;
             _jumpOnTheRightWall = false;
             _jumpOnTheLeftWall = false;
+
+            _jumps = 0;
          }
 
          if (other.gameObject.name == "Wall")
