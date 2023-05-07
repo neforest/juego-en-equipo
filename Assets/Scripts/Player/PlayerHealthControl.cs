@@ -33,8 +33,10 @@ public class PlayerHealthControl : MonoBehaviour
 
         if ( currentHealth <= 0) {
             currentHealth = 0;
+            GameSystemManager.instance.GameOver();
             gameObject.SetActive(false);
             Instantiate(_gameOver, transform.position, transform.rotation);
+            
         }
     }
 }
