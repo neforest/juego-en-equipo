@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 5029650626785594315}
   - component: {fileID: 5029650626785594312}
   - component: {fileID: 5029650626785594314}
+  - component: {fileID: 4696082286476935287}
   m_Layer: 0
   m_Name: EnemyCrab
   m_TagString: Untagged
@@ -229,6 +230,19 @@ MonoBehaviour:
   mSpeed: 5
   waitTime: 0.5
   enemyRB: {fileID: 0}
+--- !u!114 &4696082286476935287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5029650626785594308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e11826d028cba740b3caa54e643ab65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 1
 --- !u!1 &5029650627014286332
 GameObject:
   m_ObjectHideFlags: 0
