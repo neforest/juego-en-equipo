@@ -17,11 +17,12 @@ public class MuteToggle : MonoBehaviour
     }
 
     public void ToggleAudioOnValueChange(bool audioIn) {
-        Debug.Log("audioIn: " + audioIn);
         if (audioIn){
             AudioListener.volume = 1;
+            Parameters.ActivateBackgroundMusic();
         } else {
             AudioListener.volume = 0;
+            Parameters.DeactivateBackgroundMusic();
         }
     }
 
