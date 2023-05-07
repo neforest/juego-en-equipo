@@ -574,27 +574,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 876901140}
-  - component: {fileID: 876901139}
+  - component: {fileID: 876901141}
   m_Layer: 0
-  m_Name: Main
+  m_Name: GameSystemManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &876901139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 876901138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 317afe2f352082645af197c1e2c0e939, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _timerNextScene: 0
 --- !u!4 &876901140
 Transform:
   m_ObjectHideFlags: 0
@@ -610,6 +597,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &876901141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876901138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8fc212c3969d34d91cf490d7e6bcb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _delayToNextEscene: 0
+  _delayOfGameOver: 0
 --- !u!1 &975181276
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,16 +695,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 876901139}
-        m_TargetAssemblyTypeName: Main, Assembly-CSharp
-        m_MethodName: CallLoadPlayScene
-        m_Mode: 1
+      - m_Target: {fileID: 876901141}
+        m_TargetAssemblyTypeName: GameSystemManager, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &975181279
@@ -989,16 +990,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 876901139}
-        m_TargetAssemblyTypeName: Main, Assembly-CSharp
-        m_MethodName: CallLoadCreditScene
-        m_Mode: 1
+      - m_Target: {fileID: 876901141}
+        m_TargetAssemblyTypeName: GameSystemManager, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Creditos
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1173084570
