@@ -6,6 +6,8 @@ public class CameraController : MonoBehaviour
 {
 
     private Player _player;
+    [SerializeField]private float _verticalOffset = 0.0f;
+    [SerializeField]private float _horizontalOffset = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +19,8 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         if (_player != null) {
-            transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y, transform.position.z);
+            transform.position = new Vector3(_player.transform.position.x + _verticalOffset, 
+            _player.transform.position.y + _horizontalOffset, transform.position.z);
         }
     }
 }

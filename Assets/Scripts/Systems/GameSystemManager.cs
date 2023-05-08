@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameSystemManager : MonoBehaviour
 {
     public static GameSystemManager instance;
+    [SerializeField]private float _delayToNextEscene = 0.5f;
+    [SerializeField]private float _delayOfGameOver = 5.0f;
 
     private void Awake() {
         instance = this;
@@ -20,12 +22,12 @@ public class GameSystemManager : MonoBehaviour
     }
 
     IEnumerator ChangeSceneCoroutine(string nameScene) {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(_delayToNextEscene);
         SceneManager.LoadScene(nameScene);
     }
 
     IEnumerator GameOverCoroutine() {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(_delayOfGameOver);
         SceneManager.LoadScene("Creditos");
     }
 

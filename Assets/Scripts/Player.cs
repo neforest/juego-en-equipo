@@ -126,7 +126,6 @@ public class Player : MonoBehaviour
             rigid.velocity = new Vector2(_impulseHorizontalInWall, _impulseVerticalInWall);
             _jumpOnTheRightWall = false;
             _jumpOnTheLeftWall = true;
-            Debug.Log("_jumpOnTheRightWall izquierda: " + _jumpOnTheRightWall);
         }
 
         //si salto hacia la derecha, el impulso es hacia la izquierda
@@ -134,7 +133,6 @@ public class Player : MonoBehaviour
             rigid.velocity = new Vector2(-1 * _impulseHorizontalInWall, _impulseVerticalInWall);
             _jumpOnTheRightWall = true;
             _jumpOnTheLeftWall = false;
-            Debug.Log("_jumpOnTheRightWall derecha: " + _jumpOnTheRightWall);
         }
         _isJumpOnWall = false;
         isGrounded = false;
@@ -142,9 +140,6 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
      {
-        Debug.Log("entro a collision");
-        Debug.Log("collision other: " + other.gameObject.name);
-        Debug.Log("collision isgroundend: " + isGrounded);
 
          if (other.gameObject.name == "Collider" && isGrounded == false)
          {
@@ -171,11 +166,8 @@ public class Player : MonoBehaviour
          }
 
          if (_abilityControl.canWallJump) { 
-         //if (other.gameObject.name == "PowerUpJumpOnWall") {
 
             _enableJumpOnWall = true;
-
-            //Destroy(other.gameObject);
 
          }
      }

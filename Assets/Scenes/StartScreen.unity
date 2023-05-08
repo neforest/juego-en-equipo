@@ -123,6 +123,82 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &158618766
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7834075743386072832, guid: fc7dd4fee5fa6d54e81e0fef9071eeab, type: 3}
+      propertyPath: _delayOfGameOver
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834075743386072832, guid: fc7dd4fee5fa6d54e81e0fef9071eeab, type: 3}
+      propertyPath: _delayToNextEscene
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834075743386072833, guid: fc7dd4fee5fa6d54e81e0fef9071eeab, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834075743386072833, guid: fc7dd4fee5fa6d54e81e0fef9071eeab, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.552425
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834075743386072833, guid: fc7dd4fee5fa6d54e81e0fef9071eeab, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.8229837
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834075743386072833, guid: fc7dd4fee5fa6d54e81e0fef9071eeab, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 17.23695
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834075743386072833, guid: fc7dd4fee5fa6d54e81e0fef9071eeab, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834075743386072833, guid: fc7dd4fee5fa6d54e81e0fef9071eeab, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834075743386072833, guid: fc7dd4fee5fa6d54e81e0fef9071eeab, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834075743386072833, guid: fc7dd4fee5fa6d54e81e0fef9071eeab, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834075743386072833, guid: fc7dd4fee5fa6d54e81e0fef9071eeab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834075743386072833, guid: fc7dd4fee5fa6d54e81e0fef9071eeab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834075743386072833, guid: fc7dd4fee5fa6d54e81e0fef9071eeab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834075743386072835, guid: fc7dd4fee5fa6d54e81e0fef9071eeab, type: 3}
+      propertyPath: m_Name
+      value: GameSystemsManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fc7dd4fee5fa6d54e81e0fef9071eeab, type: 3}
+--- !u!114 &158618767 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7834075743386072832, guid: fc7dd4fee5fa6d54e81e0fef9071eeab, type: 3}
+  m_PrefabInstance: {fileID: 158618766}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8fc212c3969d34d91cf490d7e6bcb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &277636501
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +290,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -565,51 +641,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711891062}
   m_CullTransparentMesh: 1
---- !u!1 &876901138
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 876901140}
-  - component: {fileID: 876901139}
-  m_Layer: 0
-  m_Name: Main
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &876901139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 876901138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 317afe2f352082645af197c1e2c0e939, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _timerNextScene: 0
---- !u!4 &876901140
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 876901138}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 280.4969, y: 289.4116, z: 4.8684335}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &975181276
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,16 +725,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 876901139}
-        m_TargetAssemblyTypeName: Main, Assembly-CSharp
-        m_MethodName: CallLoadPlayScene
-        m_Mode: 1
+      - m_Target: {fileID: 158618767}
+        m_TargetAssemblyTypeName: GameSystemManager, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &975181279
@@ -989,16 +1020,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 876901139}
-        m_TargetAssemblyTypeName: Main, Assembly-CSharp
-        m_MethodName: CallLoadCreditScene
-        m_Mode: 1
+      - m_Target: {fileID: 158618767}
+        m_TargetAssemblyTypeName: GameSystemManager, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Creditos
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1173084570
@@ -1489,6 +1520,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7793121406723045347, guid: bc0689ad17f8c3c46862df117ebf1cee, type: 3}
+      propertyPath: _backgroudMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 26364aaf1f64b40c1a047b0bacfbd10e, type: 3}
     - target: {fileID: 7793121406723045348, guid: bc0689ad17f8c3c46862df117ebf1cee, type: 3}
       propertyPath: m_RootOrder
       value: 3
