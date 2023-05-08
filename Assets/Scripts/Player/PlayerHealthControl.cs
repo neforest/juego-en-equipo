@@ -36,7 +36,7 @@ public class PlayerHealthControl : MonoBehaviour
             GameSystemManager.instance.GameOver();
             gameObject.SetActive(false);
             Instantiate(_gameOver, transform.position, transform.rotation);
-            
+            TimePlaying.instance.isRunningTime = false;
         }
     }
 }

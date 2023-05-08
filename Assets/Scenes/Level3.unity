@@ -62107,6 +62107,10 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 7337543235353417498, guid: 1e28ffdadcf4d3b4c97ba21d41cb831a, type: 3}
+      propertyPath: isRunningTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e28ffdadcf4d3b4c97ba21d41cb831a, type: 3}
 --- !u!1001 &576450904

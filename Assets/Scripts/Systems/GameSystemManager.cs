@@ -28,6 +28,7 @@ public class GameSystemManager : MonoBehaviour
 
     IEnumerator GameOverCoroutine() {
         yield return new WaitForSeconds(_delayOfGameOver);
+        Parameters.SetOffsetTime(0.0f);
         SceneManager.LoadScene("Creditos");
     }
 
